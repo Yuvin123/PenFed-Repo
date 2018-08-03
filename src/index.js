@@ -32,7 +32,7 @@ class App extends Component {
  this.setState({interest:e.target.value.trim()});
   }
   calc(){
-    this.setState({ans:'$'+(this.state.price*this.state.loanTerm*this.state.interest)/100
+    this.setState({ans:'$'+((this.state.price-this.state.downPayment)+((this.state.price*this.state.loanTerm/12*this.state.interest)/100))/this.state.loanTerm
   })
   }
 
@@ -56,7 +56,7 @@ class App extends Component {
            </div>
            <div className="ans">
            {this.state.ans !==""?
-           <p>Amount: {this.state.ans}</p>:""}
+           <p>EMI is: {this.state.ans}</p>:""}
            </div>
       </div>
     );
